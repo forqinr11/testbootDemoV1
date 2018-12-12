@@ -28,3 +28,4 @@ CREATE TABLE `sys_user` (
     PRIMARY KEY (`id`),
     UNIQUE KEY `username` (`username`) USING BTREE
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
+  
