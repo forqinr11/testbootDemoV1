@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xu.modual.system.dao.SysUserMapper">
+    <resultMap id="BaseResultMap" type="com.xu.modual.system.model.SysUser">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="username" jdbcType="VARCHAR" property="username" />
+        <result column="display_name" jdbcType="VARCHAR" property="displayName" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="salt" jdbcType="VARCHAR" property="salt" />
+        <result column="org_user_id" jdbcType="VARCHAR" property="orgUserId" />
+        <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+        <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+        <result column="mail" jdbcType="VARCHAR" property="mail" />
+        <result column="status" jdbcType="TINYINT" property="status" />
+        <result column="head_path" jdbcType="VARCHAR" property="headPath" />
+        <result column="company" jdbcType="VARCHAR" property="company" />
+        <result column="department" jdbcType="VARCHAR" property="department" />
+        <result column="duty_name" jdbcType="VARCHAR" property="dutyName" />
+        <result column="belong_depart_name" jdbcType="VARCHAR" property="belongDepartName" />
+        <result column="type" jdbcType="TINYINT" property="type" />
+        <result column="schedule_notice" jdbcType="TINYINT" property="scheduleNotice" />
+        <result column="agency_notice" jdbcType="TINYINT" property="agencyNotice" />
+        <result column="read_notice" jdbcType="TINYINT" property="readNotice" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="p_order" jdbcType="VARCHAR" property="pOrder" />
+    </resultMap>
+
+    <select id="selectByUserName" parameterType="String" resultMap="BaseResultMap">
+        select
+        *
+        from sys_user
+        where username = #{userName}
+    </select>
+
+
+</mapper>

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: testboot
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: Thinkpad
+Implementation-Vendor-Id: com.ma
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_144
+Main-Class: ${start-class}
+

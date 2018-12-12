@@ -1,0 +1,53 @@
+server:
+  port: 8080
+  context-path: /testboot
+
+spring:
+  profiles:
+      active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initialSize: 1
+      minIdle: 1
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: false
+#      maxPoolPreparedStatementPerConnectionSize: 20
+      filters: stat,wall,log4j,config
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;config.decrypt=true;config.decrypt.key=${publicKey}
+      web-stat-filter:
+        url-pattern: /*
+#        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/system/druid/*'
+      stat-view-servlet:
+        url-pattern: /system/druid/*
+
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .ftl
+  freemarker:
+    cache: false
+    charset: UTF-8
+    request-context-attribute: requestContext
+
+mybatis:
+  mapper-locations: classpath:mybatis/**/*.xml
+  type-aliases-package: com.xu.modual.**.model
+
+mapper:
+  mappers: com.xu.common.frame.mapper.BasicMapper
+  not-empty: false
+  identity: MYSQL
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
